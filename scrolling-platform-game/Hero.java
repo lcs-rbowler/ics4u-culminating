@@ -24,7 +24,7 @@ public class Hero extends Actor
     private int acceleration = 2;
 
     // Strength of a jump
-    private int jumpStrength = -24;
+    private int jumpStrength = -20;
 
     // Track current theoretical position in wider "scrollable" world
     private int currentScrollableWorldXPosition;
@@ -124,7 +124,7 @@ public class Hero extends Actor
         }
 
         // Jumping
-        if (Greenfoot.isKeyDown("space") && !isGameOver)
+        if (Greenfoot.isKeyDown("space") && !isGameOver && verticalDirection == JUMPING_DOWN)
         {
             // Only able to jump when on a solid object
             if (onPlatform())
@@ -139,7 +139,7 @@ public class Hero extends Actor
      */
     public void checkFall()
     {
-        if (onPlatform())
+        if (onPlatform() && verticalDirection == JUMPING_DOWN)
         {
             // Stop falling
             deltaY = 0;
@@ -161,17 +161,17 @@ public class Hero extends Actor
             Actor rearUnder = getOneObjectAtOffset(0 - getImage().getWidth() / 3, getImage().getHeight() / 2, Platform.class);
 
             // Bump the hero back up so that they are not "submerged" in a platform object
-            if (directlyUnder != null)
+            if (directlyUnder != null && verticalDirection == JUMPING_DOWN)
             {
                 int correctedYPosition = directlyUnder.getY() - directlyUnder.getImage().getHeight() / 2 - this.getImage().getHeight() / 2;
                 setLocation(getX(), correctedYPosition);
             }
-            if (frontUnder != null)
+            if (frontUnder != null && verticalDirection == JUMPING_DOWN)
             {
                 int correctedYPosition = frontUnder.getY() - frontUnder.getImage().getHeight() / 2 - this.getImage().getHeight() / 2;
                 setLocation(getX(), correctedYPosition);
             }
-            if (rearUnder != null)
+            if (rearUnder != null && verticalDirection == JUMPING_DOWN)
             {
                 int correctedYPosition = rearUnder.getY() - rearUnder.getImage().getHeight() / 2 - this.getImage().getHeight() / 2;
                 setLocation(getX(), correctedYPosition);
@@ -205,14 +205,14 @@ public class Hero extends Actor
     }
 
     /**
-     * Is the hero currently touching a solid object? (any subclass of Platform)
+     * Is the hero currently touching a solid object from below? (i.e.: object is above hero) (any subclass of Platform)
      */
     public boolean belowPlatform()
     {
         // Get an reference to a solid object (subclass of Platform) below the hero, if one exists (NEEDS TO BE REPAIRED)
-        Actor directlyBelow = getOneObjectAtOffset(0, getImage().getHeight() * 2, Platform.class);
-        Actor frontBelow = getOneObjectAtOffset(getImage().getWidth() / 3, getImage().getHeight() * 2, Platform.class);
-        Actor rearBelow = getOneObjectAtOffset(0 - getImage().getWidth() / 3, getImage().getHeight() * 2, Platform.class);
+        Actor directlyBelow = getOneObjectAtOffset(0, -1 * getImage().getHeight() / 2, Platform.class);
+        Actor frontBelow = getOneObjectAtOffset(getImage().getWidth() / 3, -1 * getImage().getHeight() / 2, Platform.class);
+        Actor rearBelow = getOneObjectAtOffset(0 - getImage().getWidth() / 3, -1 * getImage().getHeight() / 2, Platform.class);
 
         // If there is no solid object below (or slightly in front of or behind) the hero...
         if (directlyBelow == null && frontBelow == null && rearBelow == null)
@@ -274,7 +274,7 @@ public class Hero extends Actor
         //See if there is a platform above hero (NEEDS TO BE REPAIRED)
         if (deltaY < 0 && belowPlatform())
         {
-            jumpStrength = 0;
+            deltaY = 0;
             verticalDirection = JUMPING_DOWN;
             
             // Set image
