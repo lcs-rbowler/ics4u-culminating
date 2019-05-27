@@ -205,6 +205,27 @@ public class Hero extends Actor
     }
 
     /**
+     * Is the hero currently touching a solid object? (any subclass of Platform)
+     */
+    public boolean belowPlatform()
+    {
+        // Get an reference to a solid object (subclass of Platform) below the hero, if one exists (NEEDS TO BE REPAIRED)
+        Actor directlyBelow = getOneObjectAtOffset(0, getImage().getHeight() * 2, Platform.class);
+        Actor frontBelow = getOneObjectAtOffset(getImage().getWidth() / 3, getImage().getHeight() * 2, Platform.class);
+        Actor rearBelow = getOneObjectAtOffset(0 - getImage().getWidth() / 3, getImage().getHeight() * 2, Platform.class);
+
+        // If there is no solid object below (or slightly in front of or behind) the hero...
+        if (directlyBelow == null && frontBelow == null && rearBelow == null)
+        {
+            return false;   // Not on a solid object
+        }
+        else
+        {
+            return true;
+        }
+    }
+
+    /**
      * Make the hero jump.
      */
     public void jump()
@@ -248,6 +269,23 @@ public class Hero extends Actor
             {
                 setImage("hero-jump-down-left.png");
             }
+        }
+        
+        //See if there is a platform above hero (NEEDS TO BE REPAIRED)
+        if (deltaY < 0 && belowPlatform())
+        {
+            jumpStrength = 0;
+            verticalDirection = JUMPING_DOWN;
+            
+            // Set image
+            if (horizontalDirection == FACING_RIGHT)
+            {
+                setImage("hero-jump-down-right.png");
+            }
+            else
+            {
+                setImage("hero-jump-down-left.png");
+            }                      
         }
 
         // Fall (move vertically)
