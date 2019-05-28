@@ -48,6 +48,11 @@ public class Hero extends Actor
     private static final int WALK_ANIMATION_DELAY = 8;
     private static final int COUNT_OF_WALKING_IMAGES = 2;
     private int walkingFrames;
+    
+    //For dot tracker
+    private int dotCounter = 31;
+    
+    
 
     /**
      * Constructor
@@ -97,10 +102,12 @@ public class Hero extends Actor
     {
         checkKeys();
         checkFall();
+        checkIfDot();
         if (!isGameOver)
         {
             checkGameOver();
         }
+        
     }
 
     /**
@@ -545,8 +552,12 @@ public class Hero extends Actor
     public void checkIfDot ()
     {
         //If the hero is over the dot, remove it
-        
         //Get the position of hero, find the nearest dot then remove it
+        if (isTouching(Dot.class))
+        {
+            removeTouching(Dot.class);
+            dotCounter -= 1;
+        }
         
     }
     /**
