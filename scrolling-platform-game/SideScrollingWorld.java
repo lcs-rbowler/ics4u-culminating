@@ -186,6 +186,64 @@ public class SideScrollingWorld extends World
             
         }
         
+        //Generate Dots
+        
+        //First Row
+        for (int i = 4; i < 16; i += 1)
+        {
+            int x = HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = HALF_TILE_SIZE + 8 *TILE_SIZE;
+            Dot someDots = new Dot(x,y);
+            addObject(someDots, x, y);
+            
+        }
+        
+        //Second Row
+        for (int i = 4; i < 8; i += 1)
+        {
+            int x = HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = HALF_TILE_SIZE + 5 *TILE_SIZE;
+            Dot someDots = new Dot(x,y);
+            addObject(someDots, x, y);
+            
+        }
+        
+         for (int i = 10; i < 16; i += 1)
+        {
+            int x = HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = HALF_TILE_SIZE + 5 *TILE_SIZE;
+            Dot someDots = new Dot(x,y);
+            addObject(someDots, x, y);
+            
+        }
+        
+        //Thrird Row
+        for (int i = 4; i < 6; i += 1)
+        {
+            int x = HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = HALF_TILE_SIZE + 2 *TILE_SIZE;
+            Dot someDots = new Dot(x,y);
+            addObject(someDots, x, y);
+            
+        }
+        
+        for (int i = 8; i < 12; i += 1)
+        {
+            int x = HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = HALF_TILE_SIZE + 2 *TILE_SIZE;
+            Dot someDots = new Dot(x,y);
+            addObject(someDots, x, y);
+            
+        }
+        
+        for (int i = 13; i < 16; i += 1)
+        {
+            int x = HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = HALF_TILE_SIZE + 2 *TILE_SIZE;
+            Dot someDots = new Dot(x,y);
+            addObject(someDots, x, y);
+            
+        }
 
         addHero();
     }
