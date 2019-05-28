@@ -541,7 +541,14 @@ public class Hero extends Actor
         } 
 
     }
-
+    
+    public void checkIfDot ()
+    {
+        //If the hero is over the dot, remove it
+        
+        //Get the position of hero, find the nearest dot then remove it
+        
+    }
     /**
      * When the hero falls off the bottom of the screen,
      * game is over. We must remove them.
