@@ -391,7 +391,7 @@ public class Hero extends Actor
                 // Track position in wider scrolling world
                 currentScrollableWorldXPosition += deltaX;
             }
-            else
+            else if (dotCounter == 0)
             {
                 isGameOver = true;
                 world.setGameOver();
