@@ -46,7 +46,7 @@ public class Hero extends Actor
     private GreenfootImage walkingRightImages[];
     private GreenfootImage walkingLeftImages[];
     private static final int WALK_ANIMATION_DELAY = 8;
-    private static final int COUNT_OF_WALKING_IMAGES = 2;
+    private static final int COUNT_OF_WALKING_IMAGES = 10;
     private int walkingFrames;
 
     /**
