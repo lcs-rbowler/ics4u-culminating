@@ -35,6 +35,9 @@ public class SideScrollingWorld extends World
 
     // Hero
     Hero theHero;
+    
+    //First enemy
+    Enemy theEnemy1;
 
     // Track whether game is on
     private boolean isGameOver;
@@ -246,6 +249,7 @@ public class SideScrollingWorld extends World
         }
 
         addHero();
+        addEnemy();
     }
 
     /**
@@ -366,7 +370,26 @@ public class SideScrollingWorld extends World
         // Add hero in bottom left corner of screen
         addObject(theHero, initialX, getHeight() / 6 * 3);
     }
-
+    
+    
+    
+    private void addEnemy()
+    {
+        //Initial horizontal positon
+        int initialX = 5 * TILE_SIZE;
+        
+        //Innitial vertical position
+        int initialY = 7;
+        
+        //Instantiate the hero object (FIX)
+        Enemy theEnemy1 = new Enemy();
+        
+        //Add hero
+        addObject(theEnemy1, initialX, initialY);
+        
+        
+    }
+    
     /**
      * Add blocks to create the ground to walk on at top-right of scrollable world.
      */
