@@ -560,6 +560,8 @@ public class Hero extends Actor
         }
         
     }
+    
+    public void checkIfTouchingGhost
     /**
      * When the hero falls off the bottom of the screen,
      * game is over. We must remove them.
