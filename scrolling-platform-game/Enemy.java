@@ -26,6 +26,9 @@ public class Enemy extends Actor
     private static final String FACING_RIGHT = "right";
     private static final String FACING_LEFT = "left";
     private String horizontalDirection;
+    
+    // Add a variable to track time
+    private int frames;
 
     /**
      * Constructor
@@ -33,6 +36,9 @@ public class Enemy extends Actor
     Enemy()
     {
         horizontalDirection = FACING_RIGHT;
+        
+        // Start tracking time
+        frames = 0;
     }
 
     /**
@@ -41,10 +47,37 @@ public class Enemy extends Actor
      */
     public void act() 
     {
+        // Track time
+        frames += 1;
+        
         // Facing left to start
         changeCostume();
+        checkToTurnAround();
         moveAround();
     }  
+    
+    /**
+     * Turn aroudn if it's time
+     */
+    private void checkToTurnAround()
+    {
+        if (frames == 180)
+        {
+            // Reset time tracker
+            frames = 0;
+            
+            // Change direction
+            if (horizontalDirection == FACING_LEFT)
+            {
+                horizontalDirection = FACING_RIGHT;
+            }
+            else 
+            {
+                horizontalDirection = FACING_LEFT;
+            }
+        }
+    }
+    
 
     /**
      * Move around based on direction
