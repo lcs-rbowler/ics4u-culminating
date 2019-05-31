@@ -13,10 +13,10 @@ public class Enemy extends Actor
 
     // Vertical speed (change in vertical position, or delta Y)
     private int deltaY = 2;
-    
+
     // Track current theoretical position in wider "scrollable" world
     private int currentScrollableWorldXPosition;
-    
+
     // Constants to track vertical direction
     private static final String FACING_UP = "up";
     private static final String FACING_DOWN = "down";
@@ -26,61 +26,91 @@ public class Enemy extends Actor
     private static final String FACING_RIGHT = "right";
     private static final String FACING_LEFT = "left";
     private String horizontalDirection;
-    
+
     /**
      * Constructor
      */
     Enemy()
     {
-        
+        horizontalDirection = FACING_RIGHT;
     }
-    
+
     /**
      * Act - do whatever the Enemy wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public void run() 
+    public void act() 
     {
         // Facing left to start
-        horizontalDirection = FACING_LEFT;
-        if (horizontalDirection == FACING_RIGHT)
-            {
-                setImage("red-move-right.png");
-            }
-            else if (horizontalDirection == FACING_LEFT)
-            {
-                setImage("red-move-left.png");
-            }
-            else if (verticalDirection == FACING_UP)
-            {
-                setImage("red-move-up.png");
-            }
-            else if (verticalDirection == FACING_DOWN)
-            {
-                setImage("red-move-down.png");
-            }
+        changeCostume();
+        moveAround();
     }  
-    
+
+    /**
+     * Move around based on direction
+     */
+    private void moveAround()
+    {
+        if (horizontalDirection == FACING_RIGHT)
+        {
+            setLocation(getX() + deltaX, getY());
+        }
+        else if (horizontalDirection == FACING_LEFT)
+        {
+            setLocation(getX() - deltaX, getY());
+        }
+    }
+
+    /**
+     * Change image to reflect direction
+     */
+    private void changeCostume()
+    {
+        if (horizontalDirection == FACING_RIGHT)
+        {
+            setImage("red-move-right.png");
+        }
+        else if (horizontalDirection == FACING_LEFT)
+        {
+            setImage("red-move-left.png");
+        }
+        else if (verticalDirection == FACING_UP)
+        {
+            setImage("red-move-up.png");
+        }
+        else if (verticalDirection == FACING_DOWN)
+        {
+            setImage("red-move-down.png");
+        }
+    }
+
     public void movePattern1()
     {
         //This enemy is required to move on the first platfrom, it will loop through this code 150 times.
-        
+
         // Loop through to make the ghost move back and forth on platform 1
         for (int p = 0; p < 150; p += 1)
         {   
             //Move left to end of platform 1
             for (int i = 4; i < 16; i += 1)
             {
+                horizontalDirection = FACING_LEFT;
+
                 if (i == 16)
                 {
                     //Move right to other end of platform 1 if he is at i = 16
-                    for (int j = 16; i > 3; i -= 1)
-                
+                    i = 4;
+
+                    for (int j = 16; i > 3; i -= 1)                
                     {   
-                    
+                        horizontalDirection = FACING_RIGHT;
                     }
+
+                    //j = 16;
                 }
             }
+
+            p += 1;
         }       
     }
 }
