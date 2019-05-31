@@ -21,10 +21,10 @@ public class Hero extends Actor
     private int deltaY = 4;
 
     // Acceleration for falls
-    private int acceleration = 2;
+    private int acceleration = 1;
 
     // Strength of a jump
-    private int jumpStrength = -20;
+    private int jumpStrength = -15;
 
     // Track current theoretical position in wider "scrollable" world
     private int currentScrollableWorldXPosition;

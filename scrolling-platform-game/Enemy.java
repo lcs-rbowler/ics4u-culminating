@@ -59,5 +59,28 @@ public class Enemy extends Actor
             {
                 setImage("red-move-down.png");
             }
-    }    
+    }  
+    
+    public void movePattern1()
+    {
+        //This enemy is required to move on the first platfrom, it will loop through this code 150 times.
+        
+        // Loop through to make the ghost move back and forth on platform 1
+        for (int p = 0; p < 150; p += 1)
+        {   
+            //Move left to end of platform 1
+            for (int i = 4; i < 16; i += 1)
+            {
+                if (i == 16)
+                {
+                    //Move right to other end of platform 1 if he is at i = 16
+                    for (int j = 16; i > 3; i -= 1)
+                
+                    {   
+                    
+                    }
+                }
+            }
+        }       
+    }
 }
