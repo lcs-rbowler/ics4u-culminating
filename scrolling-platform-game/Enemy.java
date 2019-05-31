@@ -26,6 +26,15 @@ public class Enemy extends Actor
     private static final String FACING_RIGHT = "right";
     private static final String FACING_LEFT = "left";
     private String horizontalDirection;
+    
+    /**
+     * Constructor
+     */
+    Enemy()
+    {
+        
+    }
+    
     /**
      * Act - do whatever the Enemy wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
