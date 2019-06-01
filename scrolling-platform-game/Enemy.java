@@ -29,13 +29,19 @@ public class Enemy extends Actor
     
     // Add a variable to track time
     private int frames;
+    
+    // Add a variable to control turning around
+    private int turnAroundAfterThreshold;
 
     /**
      * Constructor
      */
-    Enemy()
+    Enemy(int turnAroundAfterThisManyFrames)
     {
         horizontalDirection = FACING_RIGHT;
+        
+        // Set the turn around threshold
+        turnAroundAfterThreshold = turnAroundAfterThisManyFrames;
         
         // Start tracking time
         frames = 0;
@@ -61,7 +67,7 @@ public class Enemy extends Actor
      */
     private void checkToTurnAround()
     {
-        if (frames == 180)
+        if (frames == turnAroundAfterThreshold)
         {
             // Reset time tracker
             frames = 0;
@@ -115,35 +121,5 @@ public class Enemy extends Actor
         {
             setImage("red-move-down.png");
         }
-    }
-
-    public void movePattern1()
-    {
-        //This enemy is required to move on the first platfrom, it will loop through this code 150 times.
-
-        // Loop through to make the ghost move back and forth on platform 1
-        for (int p = 0; p < 150; p += 1)
-        {   
-            //Move left to end of platform 1
-            for (int i = 4; i < 16; i += 1)
-            {
-                horizontalDirection = FACING_LEFT;
-
-                if (i == 16)
-                {
-                    //Move right to other end of platform 1 if he is at i = 16
-                    i = 4;
-
-                    for (int j = 16; i > 3; i -= 1)                
-                    {   
-                        horizontalDirection = FACING_RIGHT;
-                    }
-
-                    //j = 16;
-                }
-            }
-
-            p += 1;
-        }       
     }
 }
