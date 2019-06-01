@@ -382,7 +382,7 @@ public class SideScrollingWorld extends World
         int initialY = HALF_TILE_SIZE + 8 * TILE_SIZE;
         
         //Instantiate the hero object (FIX)
-        Enemy theEnemy1 = new Enemy();
+        Enemy theEnemy1 = new Enemy(180);
         
         //Add hero
         addObject(theEnemy1, initialX, initialY);

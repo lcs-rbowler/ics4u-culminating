@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.target=Enemy
 comment0.text=\n\ Write\ a\ description\ of\ class\ Enemy\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
-comment1.params=
-comment1.target=Enemy()
+comment1.params=turnAroundAfterThisManyFrames
+comment1.target=Enemy(int)
 comment1.text=\n\ Constructor\n
 comment2.params=
 comment2.target=void\ act()
@@ -16,6 +16,4 @@ comment4.text=\n\ Move\ around\ based\ on\ direction\n
 comment5.params=
 comment5.target=void\ changeCostume()
 comment5.text=\n\ Change\ image\ to\ reflect\ direction\n
-comment6.params=
-comment6.target=void\ movePattern1()
-numComments=7
+numComments=6
