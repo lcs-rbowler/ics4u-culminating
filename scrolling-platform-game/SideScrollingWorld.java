@@ -112,13 +112,16 @@ public class SideScrollingWorld extends World
         }
 
         //Adds Group 3 (Clouds)
-        Cloud cloud1 = new Cloud(150, 125);
-        addObject(cloud1, 150, 125);
-        Cloud cloud2 = new Cloud(350, 175);
-        addObject(cloud2, 359, 175);
+        Cloud cloud1 = new Cloud(100, 125);
+        addObject(cloud1, 70, 100);
+        Cloud cloud2 = new Cloud(400, 175);
+        addObject(cloud2, 359, 150);
         Cloud cloud3 = new Cloud(500, 140);
-        addObject(cloud3, 500, 140);
-
+        addObject(cloud3, 550, 50);
+        Cloud cloud4 = new Cloud(400, 140);
+        addObject(cloud4, 300, 50);
+        Cloud cloud5 = new Cloud(400, 140);
+        addObject(cloud5, 250, 280);
         //Adds Group 4 (Metal Plates)
 
         //Metal Plates First Row: (Starts at x3, goes to x15)
