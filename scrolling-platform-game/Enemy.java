@@ -26,10 +26,10 @@ public class Enemy extends Actor
     private static final String FACING_RIGHT = "right";
     private static final String FACING_LEFT = "left";
     private String horizontalDirection;
-    
+
     // Add a variable to track time
     private int frames;
-    
+
     // Add a variable to control turning around
     private int turnAroundAfterThreshold;
 
@@ -39,10 +39,11 @@ public class Enemy extends Actor
     Enemy(int turnAroundAfterThisManyFrames)
     {
         horizontalDirection = FACING_RIGHT;
-        
+
         // Set the turn around threshold
         turnAroundAfterThreshold = turnAroundAfterThisManyFrames;
         
+
         // Start tracking time
         frames = 0;
     }
@@ -55,13 +56,14 @@ public class Enemy extends Actor
     {
         // Track time
         frames += 1;
-        
+
         // Facing left to start
         changeCostume();
         checkToTurnAround();
         moveAround();
+        movementForThirdGhost();
     }  
-    
+
     /**
      * Turn aroudn if it's time
      */
@@ -71,7 +73,7 @@ public class Enemy extends Actor
         {
             // Reset time tracker
             frames = 0;
-            
+
             // Change direction
             if (horizontalDirection == FACING_LEFT)
             {
@@ -83,7 +85,54 @@ public class Enemy extends Actor
             }
         }
     }
-    
+
+    /**
+     * The movement pattern for the third ghost!
+     */
+    public void movementForThirdGhost()
+    {
+        //NOTE: The Ghost spawns 4th platform top right corner
+
+        //Move end to end once
+        if (frames == 180)
+        {
+            // Change direction
+            horizontalDirection = FACING_RIGHT;
+        }
+
+        //Second Movement, turn around again, head to drop down to 3rd platform
+        if (frames == 200)
+        {
+            verticalDirection = FACING_DOWN;
+        }
+
+        if (frames == 230)
+        {
+            horizontalDirection = FACING_LEFT;
+        }
+
+        if (frames == 250)
+        {
+            horizontalDirection = FACING_RIGHT;
+        }
+
+        if (frames == 270)
+        {
+            verticalDirection = FACING_UP;
+        }
+
+        if (frames == 300)
+        {
+            horizontalDirection = FACING_RIGHT;
+        }
+
+        if (frames == 450)
+        {
+            frames = 0;
+            verticalDirection = FACING_LEFT;
+        }
+
+    }
 
     /**
      * Move around based on direction
@@ -97,6 +146,14 @@ public class Enemy extends Actor
         else if (horizontalDirection == FACING_LEFT)
         {
             setLocation(getX() - deltaX, getY());
+        }
+        else if (verticalDirection == FACING_UP)
+        {
+            setLocation(getY() - deltaY, getX());
+        }
+        else if (verticalDirection == FACING_DOWN)
+        {
+            setLocation(getY() + deltaY, getX());
         }
     }
 
