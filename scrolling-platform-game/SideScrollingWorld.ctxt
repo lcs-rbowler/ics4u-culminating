@@ -35,5 +35,5 @@ comment8.params=
 comment8.target=void\ addHero()
 comment8.text=\n\ Add\ the\ hero\ to\ the\ world.\n
 comment9.params=
-comment9.target=void\ addEnemy()
+comment9.target=void\ addEnemies()
 numComments=13

@@ -251,10 +251,9 @@ public class SideScrollingWorld extends World
 
         }
 
+        // Colour and spawn ghosts
         addHero();
-        addEnemy();
-        addEnemy();
-        addEnemy();
+        addEnemies();
     }
 
     /**
@@ -377,7 +376,7 @@ public class SideScrollingWorld extends World
     }
 
     
-    private void addEnemy()
+    private void addEnemies()
     {
         //Initial horizontal positon
         int initialX = HALF_TILE_SIZE + 4 * TILE_SIZE;
@@ -392,9 +391,9 @@ public class SideScrollingWorld extends World
         int initialY4 = HALF_TILE_SIZE + 1 * TILE_SIZE;
 
         //Instantiate the hero object (FIX)
-        Enemy theEnemy1 = new Enemy(180);
-        Enemy theEnemy2 = new Enemy(80);
-        Enemy theEnemy3 = new Enemy(180);
+        Enemy theEnemy1 = new Enemy(180, 1);
+        Enemy theEnemy2 = new Enemy(80, 2);
+        Enemy theEnemy3 = new Enemy(180, 3);
         
         //Add hero
         addObject(theEnemy1, initialX, initialY);
