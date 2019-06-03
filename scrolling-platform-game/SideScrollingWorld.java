@@ -41,6 +41,9 @@ public class SideScrollingWorld extends World
 
     // Track whether game is on
     private boolean isGameOver;
+    
+    // Background music
+    private GreenfootSound backgroundMusic;
 
     /**
      * Constructor for objects of class SideScrollingWorld.
@@ -57,7 +60,28 @@ public class SideScrollingWorld extends World
 
         // Game on
         isGameOver = false;
+        
+        // Load the background music file
+        backgroundMusic = new GreenfootSound("inGameMusic.mp3");
     }
+    
+    /**
+     * Method is automatically called when the world starts.
+     */
+    public void started()
+    {
+        backgroundMusic.playLoop();
+    }
+    
+    /**
+     * Method is automatically called when the world is paused.
+     */
+    public void stopped()
+    {
+        backgroundMusic.stop();
+    }
+    
+        
 
     /**
      * Set up the entire world.
