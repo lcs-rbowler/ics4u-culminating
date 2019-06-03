@@ -32,17 +32,22 @@ public class Enemy extends Actor
 
     // Add a variable to control turning around
     private int turnAroundAfterThreshold;
+    
+    // Track what ghost this is
+    private int ghostNumber;
 
     /**
      * Constructor
      */
-    Enemy(int turnAroundAfterThisManyFrames)
+    Enemy(int turnAroundAfterThisManyFrames, int whichGhost)
     {
         horizontalDirection = FACING_RIGHT;
 
         // Set the turn around threshold
         turnAroundAfterThreshold = turnAroundAfterThisManyFrames;
-        
+     
+        // Set which ghost this
+        ghostNumber = whichGhost;
 
         // Start tracking time
         frames = 0;
@@ -162,21 +167,62 @@ public class Enemy extends Actor
      */
     private void changeCostume()
     {
-        if (horizontalDirection == FACING_RIGHT)
+        if (ghostNumber == 1)
         {
-            setImage("red-move-right.png");
+            if (horizontalDirection == FACING_RIGHT)
+            {
+                setImage("red-move-right.png");
+            }
+            else if (horizontalDirection == FACING_LEFT)
+            {
+                setImage("red-move-left.png");
+            }
+            else if (verticalDirection == FACING_UP)
+            {
+                setImage("red-move-up.png");
+            }
+            else if (verticalDirection == FACING_DOWN)
+            {
+                setImage("red-move-down.png");
+            }
         }
-        else if (horizontalDirection == FACING_LEFT)
+        else if (ghostNumber == 2)
         {
-            setImage("red-move-left.png");
+            if (horizontalDirection == FACING_RIGHT)
+            {
+                setImage("blue-move-right.png");
+            }
+            else if (horizontalDirection == FACING_LEFT)
+            {
+                setImage("blue-move-left.png");
+            }
+            else if (verticalDirection == FACING_UP)
+            {
+                setImage("blue-move-up.png");
+            }
+            else if (verticalDirection == FACING_DOWN)
+            {
+                setImage("blue-move-down.png");
+            }
         }
-        else if (verticalDirection == FACING_UP)
+        else if (ghostNumber == 3)
         {
-            setImage("red-move-up.png");
-        }
-        else if (verticalDirection == FACING_DOWN)
-        {
-            setImage("red-move-down.png");
+            if (horizontalDirection == FACING_RIGHT)
+            {
+                setImage("orange-move-right.png");
+            }
+            else if (horizontalDirection == FACING_LEFT)
+            {
+                setImage("orange-move-left.png");
+            }
+            else if (verticalDirection == FACING_UP)
+            {
+                setImage("orange-move-up.png");
+            }
+            else if (verticalDirection == FACING_DOWN)
+            {
+                setImage("orange-move-down.png");
+            }
         }
     }
 }
