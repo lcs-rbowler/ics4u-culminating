@@ -21,10 +21,10 @@ public class Hero extends Actor
     private int deltaY = 4;
 
     // Acceleration for falls
-    private int acceleration = 2;
+    private int acceleration = 1;
 
     // Strength of a jump
-    private int jumpStrength = -20;
+    private int jumpStrength = -15;
 
     // Track current theoretical position in wider "scrollable" world
     private int currentScrollableWorldXPosition;
@@ -103,7 +103,7 @@ public class Hero extends Actor
         checkKeys();
         checkFall();
         checkIfDot();
-        if (!isGameOver)
+        if (isGameOver == false)
         {
             checkGameOver();
         }
@@ -578,7 +578,7 @@ public class Hero extends Actor
         int offScreenVerticalPosition = (world.getHeight() + this.getImage().getHeight() / 2);
 
         // Off bottom of screen?
-        if (this.getY() > offScreenVerticalPosition)
+        if (this.getY() > offScreenVerticalPosition || isTouching(Enemy.class))
         {
             // Remove the hero
             isGameOver = true;
@@ -588,14 +588,6 @@ public class Hero extends Actor
             // Tell the user game is over
             world.showText("GAME OVER", world.getWidth() / 2, world.getHeight() / 2);
         }
-        if (isTouching(Enemy.class))
-        {
-            // Remove the hero
-            isGameOver = true;
-            world.setGameOver();
-            
-            //Tell user that the game is over
-            world.showText("GAME OVER", world.getWidth() / 2, world.getHeight() / 2);
-        }
+
     }
 }

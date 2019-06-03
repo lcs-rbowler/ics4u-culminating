@@ -13,10 +13,10 @@ public class Enemy extends Actor
 
     // Vertical speed (change in vertical position, or delta Y)
     private int deltaY = 2;
-    
+
     // Track current theoretical position in wider "scrollable" world
     private int currentScrollableWorldXPosition;
-    
+
     // Constants to track vertical direction
     private static final String FACING_UP = "up";
     private static final String FACING_DOWN = "down";
@@ -26,38 +26,157 @@ public class Enemy extends Actor
     private static final String FACING_RIGHT = "right";
     private static final String FACING_LEFT = "left";
     private String horizontalDirection;
-    
+
+    // Add a variable to track time
+    private int frames;
+
+    // Add a variable to control turning around
+    private int turnAroundAfterThreshold;
+
     /**
      * Constructor
      */
-    Enemy()
+    Enemy(int turnAroundAfterThisManyFrames)
     {
+        horizontalDirection = FACING_RIGHT;
+
+        // Set the turn around threshold
+        turnAroundAfterThreshold = turnAroundAfterThisManyFrames;
         
+
+        // Start tracking time
+        frames = 0;
     }
-    
+
     /**
      * Act - do whatever the Enemy wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public void run() 
+    public void act() 
     {
+        // Track time
+        frames += 1;
+
         // Facing left to start
-        horizontalDirection = FACING_LEFT;
+        changeCostume();
+        checkToTurnAround();
+        moveAround();
+        movementForThirdGhost();
+    }  
+
+    /**
+     * Turn aroudn if it's time
+     */
+    private void checkToTurnAround()
+    {
+        if (frames == turnAroundAfterThreshold)
+        {
+            // Reset time tracker
+            frames = 0;
+
+            // Change direction
+            if (horizontalDirection == FACING_LEFT)
+            {
+                horizontalDirection = FACING_RIGHT;
+            }
+            else 
+            {
+                horizontalDirection = FACING_LEFT;
+            }
+        }
+    }
+
+    /**
+     * The movement pattern for the third ghost!
+     */
+    public void movementForThirdGhost()
+    {
+        //NOTE: The Ghost spawns 4th platform top right corner
+
+        //Move end to end once
+        if (frames == 180)
+        {
+            // Change direction
+            horizontalDirection = FACING_RIGHT;
+        }
+
+        //Second Movement, turn around again, head to drop down to 3rd platform
+        if (frames == 200)
+        {
+            verticalDirection = FACING_DOWN;
+        }
+
+        if (frames == 230)
+        {
+            horizontalDirection = FACING_LEFT;
+        }
+
+        if (frames == 250)
+        {
+            horizontalDirection = FACING_RIGHT;
+        }
+
+        if (frames == 270)
+        {
+            verticalDirection = FACING_UP;
+        }
+
+        if (frames == 300)
+        {
+            horizontalDirection = FACING_RIGHT;
+        }
+
+        if (frames == 450)
+        {
+            frames = 0;
+            verticalDirection = FACING_LEFT;
+        }
+
+    }
+
+    /**
+     * Move around based on direction
+     */
+    private void moveAround()
+    {
         if (horizontalDirection == FACING_RIGHT)
-            {
-                setImage("red-move-right.png");
-            }
-            else if (horizontalDirection == FACING_LEFT)
-            {
-                setImage("red-move-left.png");
-            }
-            else if (verticalDirection == FACING_UP)
-            {
-                setImage("red-move-up.png");
-            }
-            else if (verticalDirection == FACING_DOWN)
-            {
-                setImage("red-move-down.png");
-            }
-    }    
+        {
+            setLocation(getX() + deltaX, getY());
+        }
+        else if (horizontalDirection == FACING_LEFT)
+        {
+            setLocation(getX() - deltaX, getY());
+        }
+        else if (verticalDirection == FACING_UP)
+        {
+            setLocation(getY() - deltaY, getX());
+        }
+        else if (verticalDirection == FACING_DOWN)
+        {
+            setLocation(getY() + deltaY, getX());
+        }
+    }
+
+    /**
+     * Change image to reflect direction
+     */
+    private void changeCostume()
+    {
+        if (horizontalDirection == FACING_RIGHT)
+        {
+            setImage("red-move-right.png");
+        }
+        else if (horizontalDirection == FACING_LEFT)
+        {
+            setImage("red-move-left.png");
+        }
+        else if (verticalDirection == FACING_UP)
+        {
+            setImage("red-move-up.png");
+        }
+        else if (verticalDirection == FACING_DOWN)
+        {
+            setImage("red-move-down.png");
+        }
+    }
 }

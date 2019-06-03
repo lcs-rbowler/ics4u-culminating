@@ -1,11 +1,11 @@
 #Greenfoot project file
 class.Cloud.image=cloud.png
 class.Dot.image=Screen\ Shot\ 2019-05-28\ at\ 11.16.55\ AM.png
-class.Enemy.image=red-move-right.png
+class.Enemy.image=red-move-down.png
 class.Fence.image=fence.png
 class.Ground.image=ground.png
 class.GroundBelow.image=ground-below.png
-class.Hero.image=hero-idle-right-0.png
+class.Hero.image=hero-right.png
 class.MetalPlate.image=metal-plate.png
 class.SideScrollingWorld.image=background.png
 dependency1.from=SideScrollingWorld
@@ -18,16 +18,14 @@ dependency11.from=Hero
 dependency11.to=Decoration
 dependency11.type=UsesDependency
 dependency12.from=Hero
-<<<<<<< HEAD
-dependency12.to=Dot
-dependency12.type=UsesDependency
-=======
 dependency12.to=FarAwayItem
 dependency12.type=UsesDependency
 dependency13.from=Hero
 dependency13.to=Dot
 dependency13.type=UsesDependency
->>>>>>> c8a2c3731cd45e682a25f776a0f40f93a4d1aefa
+dependency14.from=Hero
+dependency14.to=Enemy
+dependency14.type=UsesDependency
 dependency2.from=SideScrollingWorld
 dependency2.to=Enemy
 dependency2.type=UsesDependency
@@ -166,6 +164,5 @@ target9.x=0
 target9.y=0
 version=3.0.0
 width=1440
-world.lastInstantiated=SideScrollingWorld
-xPosition=125
+xPosition=0
 yPosition=23

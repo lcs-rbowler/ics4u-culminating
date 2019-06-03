@@ -35,7 +35,7 @@ public class SideScrollingWorld extends World
 
     // Hero
     Hero theHero;
-    
+
     //First enemy
     Enemy theEnemy1;
 
@@ -79,14 +79,14 @@ public class SideScrollingWorld extends World
             Ground someGround = new Ground(x, y);
             addObject(someGround, x, y);
         }
-         for (int i = 17; i < 21 ; i += 1)
+        for (int i = 17; i < 21 ; i += 1)
         {
             int x = HALF_TILE_SIZE + i * TILE_SIZE;
             int y = HALF_TILE_SIZE + 11 * TILE_SIZE;
             Ground someGround = new Ground(x, y);
             addObject(someGround, x, y);
         }
-        
+
         //Adds Group 2 (Ground Below Blocks)
         for (int i = 0; i < 3; i += 1)
         {
@@ -97,7 +97,7 @@ public class SideScrollingWorld extends World
                 GroundBelow someGroundBelow = new GroundBelow(x, y);
                 addObject(someGroundBelow, x, y);
             }   
-              
+
         }
         for (int i = 17; i < 21; i += 1)
         {
@@ -108,9 +108,9 @@ public class SideScrollingWorld extends World
                 GroundBelow someGroundBelow = new GroundBelow(x, y);
                 addObject(someGroundBelow, x, y);
             }   
-              
+
         }
-        
+
         //Adds Group 3 (Clouds)
         Cloud cloud1 = new Cloud(100, 125);
         addObject(cloud1, 70, 100);
@@ -122,20 +122,19 @@ public class SideScrollingWorld extends World
         addObject(cloud4, 300, 50);
         Cloud cloud5 = new Cloud(400, 140);
         addObject(cloud5, 250, 280);
-        
         //Adds Group 4 (Metal Plates)
-        
+
         //Metal Plates First Row: (Starts at x3, goes to x15)
-        
+
         for (int i = 4; i < 16; i += 1)
         {
             int x = HALF_TILE_SIZE + i * TILE_SIZE;
             int y = HALF_TILE_SIZE + 9 *TILE_SIZE;
             MetalPlate someMetalPlates = new MetalPlate(x, y);
             addObject(someMetalPlates, x, y);
-            
+
         }
-        
+
         //Metal Plates Second Row
         for (int i = 4; i < 8; i += 1)
         {
@@ -143,18 +142,18 @@ public class SideScrollingWorld extends World
             int y = HALF_TILE_SIZE + 6 *TILE_SIZE;
             MetalPlate someMetalPlates = new MetalPlate(x, y);
             addObject(someMetalPlates, x, y);
-            
+
         }
-        
+
         for (int i = 10; i < 16; i += 1)
         {
             int x = HALF_TILE_SIZE + i * TILE_SIZE;
             int y = HALF_TILE_SIZE + 6 *TILE_SIZE;
             MetalPlate someMetalPlates = new MetalPlate(x, y);
             addObject(someMetalPlates, x, y);
-            
+
         }
-        
+
         //Metal Plates Third Row
         for (int i = 4; i < 6; i += 1)
         {
@@ -162,27 +161,27 @@ public class SideScrollingWorld extends World
             int y = HALF_TILE_SIZE + 3 *TILE_SIZE;
             MetalPlate someMetalPlates = new MetalPlate(x, y);
             addObject(someMetalPlates, x, y);
-            
+
         }
-        
+
         for (int i = 8; i < 12; i += 1)
         {
             int x = HALF_TILE_SIZE + i * TILE_SIZE;
             int y = HALF_TILE_SIZE + 3 *TILE_SIZE;
             MetalPlate someMetalPlates = new MetalPlate(x, y);
             addObject(someMetalPlates, x, y);
-            
+
         }
-        
+
         for (int i = 13; i < 16; i += 1)
         {
             int x = HALF_TILE_SIZE + i * TILE_SIZE;
             int y = HALF_TILE_SIZE + 3 *TILE_SIZE;
             MetalPlate someMetalPlates = new MetalPlate(x, y);
             addObject(someMetalPlates, x, y);
-            
+
         }
-        
+
         //Metal Plates 4th row
         for (int i = 4; i < 16; i += 1)
         {
@@ -190,11 +189,11 @@ public class SideScrollingWorld extends World
             int y = HALF_TILE_SIZE + 0 *TILE_SIZE;
             MetalPlate someMetalPlates = new MetalPlate(x, y);
             addObject(someMetalPlates, x, y);
-            
+
         }
-        
+
         //Generate Dots
-        
+
         //First Row
         for (int i = 4; i < 16; i += 1)
         {
@@ -202,9 +201,9 @@ public class SideScrollingWorld extends World
             int y = HALF_TILE_SIZE + 8 *TILE_SIZE;
             Dot someDots = new Dot(x,y);
             addObject(someDots, x, y);
-            
+
         }
-        
+
         //Second Row
         for (int i = 4; i < 8; i += 1)
         {
@@ -212,18 +211,18 @@ public class SideScrollingWorld extends World
             int y = HALF_TILE_SIZE + 5 *TILE_SIZE;
             Dot someDots = new Dot(x,y);
             addObject(someDots, x, y);
-            
+
         }
-        
-         for (int i = 10; i < 16; i += 1)
+
+        for (int i = 10; i < 16; i += 1)
         {
             int x = HALF_TILE_SIZE + i * TILE_SIZE;
             int y = HALF_TILE_SIZE + 5 *TILE_SIZE;
             Dot someDots = new Dot(x,y);
             addObject(someDots, x, y);
-            
+
         }
-        
+
         //Thrird Row
         for (int i = 4; i < 6; i += 1)
         {
@@ -231,28 +230,30 @@ public class SideScrollingWorld extends World
             int y = HALF_TILE_SIZE + 2 *TILE_SIZE;
             Dot someDots = new Dot(x,y);
             addObject(someDots, x, y);
-            
+
         }
-        
+
         for (int i = 8; i < 12; i += 1)
         {
             int x = HALF_TILE_SIZE + i * TILE_SIZE;
             int y = HALF_TILE_SIZE + 2 *TILE_SIZE;
             Dot someDots = new Dot(x,y);
             addObject(someDots, x, y);
-            
+
         }
-        
+
         for (int i = 13; i < 16; i += 1)
         {
             int x = HALF_TILE_SIZE + i * TILE_SIZE;
             int y = HALF_TILE_SIZE + 2 *TILE_SIZE;
             Dot someDots = new Dot(x,y);
             addObject(someDots, x, y);
-            
+
         }
 
         addHero();
+        addEnemy();
+        addEnemy();
         addEnemy();
     }
 
@@ -374,25 +375,34 @@ public class SideScrollingWorld extends World
         // Add hero in bottom left corner of screen
         addObject(theHero, initialX, getHeight() / 6 * 3);
     }
-    
-    
+
     
     private void addEnemy()
     {
         //Initial horizontal positon
-        int initialX = 5 * TILE_SIZE;
-        
+        int initialX = HALF_TILE_SIZE + 4 * TILE_SIZE;
+        int initialX2 = HALF_TILE_SIZE + 10 * TILE_SIZE;
+        int initialX3 = HALF_TILE_SIZE + 4 * TILE_SIZE;
+        int initialX4 = HALF_TILE_SIZE + 10 * TILE_SIZE;
+
         //Innitial vertical position
-        int initialY = 7;
-        
+        int initialY = HALF_TILE_SIZE + 8 * TILE_SIZE;
+        int initialY2 = HALF_TILE_SIZE + 5 * TILE_SIZE;
+        int initialY3 = HALF_TILE_SIZE + 2 * TILE_SIZE;
+        int initialY4 = HALF_TILE_SIZE + 1 * TILE_SIZE;
+
         //Instantiate the hero object (FIX)
-        Enemy theEnemy1 = new Enemy();
+        Enemy theEnemy1 = new Enemy(180);
+        Enemy theEnemy2 = new Enemy(80);
+        Enemy theEnemy3 = new Enemy(180);
         
         //Add hero
         addObject(theEnemy1, initialX, initialY);
-        
-        
+        addObject(theEnemy2, initialX2, initialY2);
+        addObject(theEnemy3, initialX3, initialY3);
+
     }
+    
     
     /**
      * Add blocks to create the ground to walk on at top-right of scrollable world.
