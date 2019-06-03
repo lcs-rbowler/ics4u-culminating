@@ -81,8 +81,6 @@ public class SideScrollingWorld extends World
         backgroundMusic.stop();
     }
     
-        
-
     /**
      * Set up the entire world.
      */

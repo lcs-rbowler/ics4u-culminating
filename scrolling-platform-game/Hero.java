@@ -52,7 +52,14 @@ public class Hero extends Actor
     //For dot tracker
     private int dotCounter = 31;
     
+    //Game over music
+    private GreenfootSound gameOver;
     
+    //Win Music
+    private GreenfootSound win;
+    
+    //Can Win music
+    private GreenfootSound canWin;
 
     /**
      * Constructor
@@ -92,6 +99,11 @@ public class Hero extends Actor
 
         // Track animation frames for walking
         walkingFrames = 0;
+        
+        //Construct sound
+        gameOver = new GreenfootSound("gameOver.mp3");
+        win = new GreenfootSound("win.mp3");
+        canWin = new GreenfootSound("canWin.mp3");
     }
 
     /**
@@ -106,6 +118,11 @@ public class Hero extends Actor
         if (isGameOver == false)
         {
             checkGameOver();
+        }
+        
+        if(dotCounter == 1)
+        {
+            canWin.play();
         }
         
     }
@@ -395,8 +412,10 @@ public class Hero extends Actor
             {
                 isGameOver = true;
                 world.setGameOver();
-
+                world.stopped();
+                win.play();
                 // Tell the user game is over
+                
                 world.showText("LEVEL COMPLETE", world.getWidth() / 2, world.getHeight() / 2);
             }
 
@@ -582,8 +601,11 @@ public class Hero extends Actor
         {
             // Remove the hero
             isGameOver = true;
+            world.stopped();
+            gameOver.play();
             world.setGameOver();
             world.removeObject(this);
+            
 
             // Tell the user game is over
             world.showText("GAME OVER", world.getWidth() / 2, world.getHeight() / 2);
