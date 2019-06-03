@@ -560,6 +560,11 @@ public class Hero extends Actor
         }
         
     }
+    
+    public void checkIfTouchingGhost ()
+    {
+
+    }
     /**
      * When the hero falls off the bottom of the screen,
      * game is over. We must remove them.
@@ -581,6 +586,15 @@ public class Hero extends Actor
             world.removeObject(this);
 
             // Tell the user game is over
+            world.showText("GAME OVER", world.getWidth() / 2, world.getHeight() / 2);
+        }
+        if (isTouching(Enemy.class))
+        {
+            // Remove the hero
+            isGameOver = true;
+            world.setGameOver();
+            
+            //Tell user that the game is over
             world.showText("GAME OVER", world.getWidth() / 2, world.getHeight() / 2);
         }
     }

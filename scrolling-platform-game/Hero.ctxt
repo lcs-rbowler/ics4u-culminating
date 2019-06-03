@@ -11,10 +11,20 @@ comment11.params=
 comment11.target=void\ moveLeft()
 comment11.text=\n\ Move\ the\ hero\ to\ the\ left.\n
 comment12.params=
+<<<<<<< HEAD
 comment12.target=void\ checkIfDot()
 comment13.params=
 comment13.target=void\ checkGameOver()
 comment13.text=\n\ When\ the\ hero\ falls\ off\ the\ bottom\ of\ the\ screen,\n\ game\ is\ over.\ We\ must\ remove\ them.\n
+=======
+comment12.target=void\ checkGameOver()
+comment12.text=\n\ When\ the\ hero\ falls\ off\ the\ bottom\ of\ the\ screen,\n\ game\ is\ over.\ We\ must\ remove\ them.\n
+comment13.params=
+comment13.target=void\ checkIfTouchingGhost()
+comment14.params=
+comment14.target=void\ checkGameOver()
+comment14.text=\n\ When\ the\ hero\ falls\ off\ the\ bottom\ of\ the\ screen,\n\ game\ is\ over.\ We\ must\ remove\ them.\n
+>>>>>>> c8a2c3731cd45e682a25f776a0f40f93a4d1aefa
 comment2.params=
 comment2.target=void\ act()
 comment2.text=\n\ Act\ -\ do\ whatever\ the\ Hero\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
@@ -39,4 +49,8 @@ comment8.text=\n\ Make\ the\ hero\ fall.\n
 comment9.params=direction
 comment9.target=void\ animateWalk(java.lang.String)
 comment9.text=\n\ Animate\ walking\n
+<<<<<<< HEAD
 numComments=14
+=======
+numComments=13
+>>>>>>> c8a2c3731cd45e682a25f776a0f40f93a4d1aefa
